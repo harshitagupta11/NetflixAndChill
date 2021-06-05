@@ -10,6 +10,7 @@ function Nav(props) {
             handleShow(false)
         }
     }
+    
     useEffect(()=>{
         window.addEventListener("scroll",transitionNav)
         return ()=>window.removeEventListener("scroll",transitionNav)
