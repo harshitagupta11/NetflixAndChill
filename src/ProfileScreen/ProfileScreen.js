@@ -20,7 +20,52 @@ function ProfileScreen(props) {
                         <div className="profileScreen_plans">
                             <h3>Plans</h3>
 
-                            <p>Renewal date</p>
+                            
+                            <div className="profileScreen_planType">
+                                <div>
+                                    <p>
+                                        Premium
+                                    </p>
+                                    <p>
+                                        4K + HDR
+                                    </p>
+                                </div>
+                                <div>
+                                    <button className="profileScreen_subscribe">
+                                        Subscribe
+                                    </button>
+                                </div>
+                            </div>
+                            <div className="profileScreen_planType">
+                                <div>
+                                    <p>
+                                        Basic
+                                    </p>
+                                    <p>
+                                        720
+                                    </p>
+                                </div>
+                                <div>
+                                    <button className="profileScreen_subscribe">
+                                        Subscribe
+                                    </button>
+                                </div>
+                            </div>
+                            <div className="profileScreen_planType">
+                                <div>
+                                    <p>
+                                        Standard
+                                    </p>
+                                    <p>
+                                        1080p
+                                    </p>
+                                </div>
+                                <div>
+                                    <button className="profileScreen_subscribe">
+                                        Subscribe
+                                    </button>
+                                </div>
+                            </div>
                             <button onClick={()=>auth.signOut()}
                             className="profileScreen_signOut">Sign Out</button>
                         </div>

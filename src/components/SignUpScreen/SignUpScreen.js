@@ -1,9 +1,10 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import './SignUpScreen.css';
 import {auth} from '../../config/firebase'
 function SignUpScreen(props) {
     const emailRef=useRef(null);
     const passworfRef = useRef(null);
+    const [error,setError]=useState('')
     const register =(e)=>{
         e.preventDefault();
         auth.createUserWithEmailAndPassword(
@@ -15,6 +16,7 @@ function SignUpScreen(props) {
         })
         .catch((error)=>{
             console.log(error)
+            setError(error)
         })
     }
     const signIn=(e)=>{
@@ -27,7 +29,10 @@ function SignUpScreen(props) {
         .then((authUser)=>{
             console.log(authUser)
         })
-        .catch(error=>console.log(error))
+        .catch(error=>{
+            setError(error)
+            console.log(error)
+        })
     }
     return (
         <div className="signUpScreen">
@@ -35,6 +40,9 @@ function SignUpScreen(props) {
                  <h1>Sign In</h1>
                  <input ref={emailRef} placeholder="Email" type="email" />
                  <input ref={passworfRef} placeholder="Password" type="password"/>
+                 {error?
+                 <p>Invalid email or password</p>:<></>
+                 }
                  <button type="submit" onClick={(signIn)}> Sign In </button>
             </form>
             <h4>
